@@ -43,25 +43,6 @@
   </entry>
   
   <entry>
-    <title>Clojure08 - 条件语句</title>
-    <link href="http://yoursite.com/2022/04/21/Clojure/Clojure08%20-%20%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/"/>
-    <id>http://yoursite.com/2022/04/21/Clojure/Clojure08%20-%20%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/</id>
-    <published>2022-04-20T16:00:00.000Z</published>
-    <updated>2022-04-21T03:58:33.806Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Clojure" scheme="http://yoursite.com/categories/Clojure/"/>
-    
-    
-      <category term="Clojure" scheme="http://yoursite.com/tags/Clojure/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Clojure07 - 运算符</title>
     <link href="http://yoursite.com/2022/04/21/Clojure/Clojure07%20-%20%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
     <id>http://yoursite.com/2022/04/21/Clojure/Clojure07%20-%20%E8%BF%90%E7%AE%97%E7%AC%A6/</id>
@@ -77,6 +58,25 @@
         &lt;h1 id=&quot;运算符&quot;&gt;&lt;a href=&quot;#运算符&quot; class=&quot;headerlink&quot; title=&quot;运算符&quot;&gt;&lt;/a&gt;运算符&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;operator&lt;/strong&gt;是一个符号，告诉编译器执行特定的数学或逻辑操作。&lt;/p&gt;
 &lt;p&gt;Clojure有以
       
+    
+    </summary>
+    
+    
+      <category term="Clojure" scheme="http://yoursite.com/categories/Clojure/"/>
+    
+    
+      <category term="Clojure" scheme="http://yoursite.com/tags/Clojure/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Clojure08 - 条件语句</title>
+    <link href="http://yoursite.com/2022/04/21/Clojure/Clojure08%20-%20%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://yoursite.com/2022/04/21/Clojure/Clojure08%20-%20%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/</id>
+    <published>2022-04-20T16:00:00.000Z</published>
+    <updated>2022-04-21T03:58:33.806Z</updated>
+    
+    <summary type="html">
     
     </summary>
     
@@ -142,6 +142,32 @@
   </entry>
   
   <entry>
+    <title>Clojure05 - 集合</title>
+    <link href="http://yoursite.com/2022/04/19/Clojure/Clojure05%20-%20%E9%9B%86%E5%90%88/"/>
+    <id>http://yoursite.com/2022/04/19/Clojure/Clojure05%20-%20%E9%9B%86%E5%90%88/</id>
+    <published>2022-04-18T16:00:00.000Z</published>
+    <updated>2022-04-21T03:57:46.039Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><ul><li><h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><ul><li><p>Lists是一个有序的元素的集合 — 相当于java里面的LinkedList。这种集合对于那种一直要往最前面加一个元素，干掉最前面一个元素是非常高效的(O(1)) — 想到于java里面的堆栈, 但是没有高效的方法来获取第N个元素， 也没有高效的办法来修改第N个元素。</p><p>下面是创建同样的list的多种不同的方法：</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges (<span class="hljs-name"><span class="hljs-builtin-name">list</span></span> <span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges (<span class="hljs-name"><span class="hljs-builtin-name">quote</span></span> (<span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>)))<br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges '(<span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>))<br></code></pre></td></tr></table></figure></li></ul></li><li><h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><ul><li><p>Maps 保存从key到value的a对应关系 — key和value都可以是任意对象。key-value 组合被以一种可以按照key的顺序高效获取的方式保存着。</p><p>下面是创建map的一些方法， 其中逗号是为了提高可读性的，它是可选的，解析的时候会被当作空格忽略掉的。</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> popsicle-map<br>  (<span class="hljs-name"><span class="hljs-builtin-name">hash-map</span></span> <span class="hljs-symbol">:red</span> <span class="hljs-symbol">:cherry</span>, <span class="hljs-symbol">:green</span> <span class="hljs-symbol">:apple</span>, <span class="hljs-symbol">:purple</span> <span class="hljs-symbol">:grape</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> popsicle-map<br>  &#123;<span class="hljs-symbol">:red</span> <span class="hljs-symbol">:cherry</span>, <span class="hljs-symbol">:green</span> <span class="hljs-symbol">:apple</span>, <span class="hljs-symbol">:purple</span> <span class="hljs-symbol">:grape</span>&#125;) <span class="hljs-comment">; same as previous</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> popsicle-map<br>  (<span class="hljs-name"><span class="hljs-builtin-name">sorted-map</span></span> <span class="hljs-symbol">:red</span> <span class="hljs-symbol">:cherry</span>, <span class="hljs-symbol">:green</span> <span class="hljs-symbol">:apple</span>, <span class="hljs-symbol">:purple</span> <span class="hljs-symbol">:grape</span>))<br></code></pre></td></tr></table></figure><p>Map可以作为它的key的函数，同时如果key是keyword的话，那么key也可以作为map的函数。下面是三种获取:green所对应的值的方法：</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">get</span></span> popsicle-map <span class="hljs-symbol">:green</span>)<br>(<span class="hljs-name">popsicle-map</span> <span class="hljs-symbol">:green</span>)<br>(<span class="hljs-symbol">:green</span> popsicle-map)<br></code></pre></td></tr></table></figure></li></ul></li></ul><ul><li><h4 id="vec"><a href="#vec" class="headerlink" title="vec"></a>vec</h4><ul><li><p>Vectors也是一种有序的集合。这种集合对于从最后面删除一个元素，或者获取最后面一个元素是非常高效的(O(1))。这意味着对于向vector里面添加元素使用conj被使用cons更高效。Vector对于以索引的方式访问某个元素（用nth命令）或者修改某个元素(用assoc)来说非常的高效。函数定义的时候指定参数列表用的就是vector。</p><p>下面是两种创建vector的方法：</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges (<span class="hljs-name"><span class="hljs-builtin-name">vector</span></span> <span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges [<span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>])<br></code></pre></td></tr></table></figure></li></ul></li><li><h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><ul><li><p>Sets 是一个包含不重复元素的集合。当我们要求集合里面的元素不可以重复，并且我们不要求集合里面的元素保持它们添加时候的顺序，那么sets是比较适合的。 Clojure 支持两种不同的set： 排序的和不排序的。如果添加到set里面的元素相互之间不能比较大小，那么一个 <code>ClassCastException</code> 异常会被抛出来。下面是一些创建set的方法:</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges (<span class="hljs-name"><span class="hljs-builtin-name">hash-set</span></span> <span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>)) <span class="hljs-comment">; not sorted</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges #&#123;<span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>&#125;) <span class="hljs-comment">; same as previous</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges (<span class="hljs-name"><span class="hljs-builtin-name">sorted-set</span></span> <span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>))<br></code></pre></td></tr></table></figure></li></ul></li></ul><h3 id="5-defmulti"><a href="#5-defmulti" class="headerlink" title="5. defmulti"></a>5. defmulti</h3><p>宏 <code>defmulti</code> 和 <code>defmethod</code> 经常被用在一起来定义 multimethod. 宏 <code>defmulti</code> 的参数包括一个方法名以及一个dispatch函数，这个dispatch函数的返回值会被用来选择到底调用哪个重载的函数。宏 <code>defmethod</code> 的参数则包括方法名，dispatch的值， 参数列表以及方法体。一个特殊的dispatch值 <code>:default</code> 是用来表示默认情况的 — 即如果其它的dispatch值都不匹配的话，那么就调用这个方法。 <code>defmethod</code> 多定义的名字一样的方法，它们的参数个数必须一样。传给multimethod的参数会传给dipatch函数的。</p><p>下面是一个用multimethod来实现基于参数的类型来进行重载的例子：</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defmulti</span></span> what-am-i class) <span class="hljs-comment">; class is the dispatch function</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">defmethod</span></span> what-am-i Number [arg] (<span class="hljs-name">println</span> arg <span class="hljs-string">"is a Number"</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">defmethod</span></span> what-am-i String [arg] (<span class="hljs-name">println</span> arg <span class="hljs-string">"is a String"</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">defmethod</span></span> what-am-i <span class="hljs-symbol">:default</span> [arg] (<span class="hljs-name">println</span> arg <span class="hljs-string">"is something else"</span>))<br>(<span class="hljs-name">what-am-i</span> <span class="hljs-number">19</span>) <span class="hljs-comment">; -&gt; 19 is a Number</span><br>(<span class="hljs-name">what-am-i</span> <span class="hljs-string">"Hello"</span>) <span class="hljs-comment">; -&gt; Hello is a String</span><br>(<span class="hljs-name">what-am-i</span> <span class="hljs-literal">true</span>) <span class="hljs-comment">; -&gt; true is something else</span><br></code></pre></td></tr></table></figure><h3 id="6-Simple-Sample"><a href="#6-Simple-Sample" class="headerlink" title="6. Simple Sample"></a>6. Simple Sample</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;集合&quot;&gt;&lt;a href=&quot;#集合&quot; class=&quot;headerlink&quot; title=&quot;集合&quot;&gt;&lt;/a&gt;集合&lt;/h1&gt;&lt;h3 id=&quot;Collection&quot;&gt;&lt;a href=&quot;#Collection&quot; class=&quot;headerlink&quot; title=&quot;Colle
+      
+    
+    </summary>
+    
+    
+      <category term="Clojure" scheme="http://yoursite.com/categories/Clojure/"/>
+    
+    
+      <category term="Clojure" scheme="http://yoursite.com/tags/Clojure/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Clojure04 - 数据类型与变量</title>
     <link href="http://yoursite.com/2022/04/19/Clojure/Clojure04%20-%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%98%E9%87%8F/"/>
     <id>http://yoursite.com/2022/04/19/Clojure/Clojure04%20-%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%98%E9%87%8F/</id>
@@ -156,32 +182,6 @@
       
         &lt;h1 id=&quot;数据类型&quot;&gt;&lt;a href=&quot;#数据类型&quot; class=&quot;headerlink&quot; title=&quot;数据类型&quot;&gt;&lt;/a&gt;数据类型&lt;/h1&gt;&lt;p&gt;Clojure提供各种&lt;strong&gt;built-in data types.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&quot;0
-      
-    
-    </summary>
-    
-    
-      <category term="Clojure" scheme="http://yoursite.com/categories/Clojure/"/>
-    
-    
-      <category term="Clojure" scheme="http://yoursite.com/tags/Clojure/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Clojure05 - 集合</title>
-    <link href="http://yoursite.com/2022/04/19/Clojure/Clojure05%20-%20%E9%9B%86%E5%90%88/"/>
-    <id>http://yoursite.com/2022/04/19/Clojure/Clojure05%20-%20%E9%9B%86%E5%90%88/</id>
-    <published>2022-04-18T16:00:00.000Z</published>
-    <updated>2022-04-21T03:57:46.039Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><ul><li><h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><ul><li><p>Lists是一个有序的元素的集合 — 相当于java里面的LinkedList。这种集合对于那种一直要往最前面加一个元素，干掉最前面一个元素是非常高效的(O(1)) — 想到于java里面的堆栈, 但是没有高效的方法来获取第N个元素， 也没有高效的办法来修改第N个元素。</p><p>下面是创建同样的list的多种不同的方法：</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges (<span class="hljs-name"><span class="hljs-builtin-name">list</span></span> <span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges (<span class="hljs-name"><span class="hljs-builtin-name">quote</span></span> (<span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>)))<br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges '(<span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>))<br></code></pre></td></tr></table></figure></li></ul></li><li><h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><ul><li><p>Maps 保存从key到value的a对应关系 — key和value都可以是任意对象。key-value 组合被以一种可以按照key的顺序高效获取的方式保存着。</p><p>下面是创建map的一些方法， 其中逗号是为了提高可读性的，它是可选的，解析的时候会被当作空格忽略掉的。</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> popsicle-map<br>  (<span class="hljs-name"><span class="hljs-builtin-name">hash-map</span></span> <span class="hljs-symbol">:red</span> <span class="hljs-symbol">:cherry</span>, <span class="hljs-symbol">:green</span> <span class="hljs-symbol">:apple</span>, <span class="hljs-symbol">:purple</span> <span class="hljs-symbol">:grape</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> popsicle-map<br>  &#123;<span class="hljs-symbol">:red</span> <span class="hljs-symbol">:cherry</span>, <span class="hljs-symbol">:green</span> <span class="hljs-symbol">:apple</span>, <span class="hljs-symbol">:purple</span> <span class="hljs-symbol">:grape</span>&#125;) <span class="hljs-comment">; same as previous</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> popsicle-map<br>  (<span class="hljs-name"><span class="hljs-builtin-name">sorted-map</span></span> <span class="hljs-symbol">:red</span> <span class="hljs-symbol">:cherry</span>, <span class="hljs-symbol">:green</span> <span class="hljs-symbol">:apple</span>, <span class="hljs-symbol">:purple</span> <span class="hljs-symbol">:grape</span>))<br></code></pre></td></tr></table></figure><p>Map可以作为它的key的函数，同时如果key是keyword的话，那么key也可以作为map的函数。下面是三种获取:green所对应的值的方法：</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">get</span></span> popsicle-map <span class="hljs-symbol">:green</span>)<br>(<span class="hljs-name">popsicle-map</span> <span class="hljs-symbol">:green</span>)<br>(<span class="hljs-symbol">:green</span> popsicle-map)<br></code></pre></td></tr></table></figure></li></ul></li></ul><ul><li><h4 id="vec"><a href="#vec" class="headerlink" title="vec"></a>vec</h4><ul><li><p>Vectors也是一种有序的集合。这种集合对于从最后面删除一个元素，或者获取最后面一个元素是非常高效的(O(1))。这意味着对于向vector里面添加元素使用conj被使用cons更高效。Vector对于以索引的方式访问某个元素（用nth命令）或者修改某个元素(用assoc)来说非常的高效。函数定义的时候指定参数列表用的就是vector。</p><p>下面是两种创建vector的方法：</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges (<span class="hljs-name"><span class="hljs-builtin-name">vector</span></span> <span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges [<span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>])<br></code></pre></td></tr></table></figure></li></ul></li><li><h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><ul><li><p>Sets 是一个包含不重复元素的集合。当我们要求集合里面的元素不可以重复，并且我们不要求集合里面的元素保持它们添加时候的顺序，那么sets是比较适合的。 Clojure 支持两种不同的set： 排序的和不排序的。如果添加到set里面的元素相互之间不能比较大小，那么一个 <code>ClassCastException</code> 异常会被抛出来。下面是一些创建set的方法:</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges (<span class="hljs-name"><span class="hljs-builtin-name">hash-set</span></span> <span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>)) <span class="hljs-comment">; not sorted</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges #&#123;<span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>&#125;) <span class="hljs-comment">; same as previous</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> stooges (<span class="hljs-name"><span class="hljs-builtin-name">sorted-set</span></span> <span class="hljs-string">"Moe"</span> <span class="hljs-string">"Larry"</span> <span class="hljs-string">"Curly"</span>))<br></code></pre></td></tr></table></figure></li></ul></li></ul><h3 id="5-defmulti"><a href="#5-defmulti" class="headerlink" title="5. defmulti"></a>5. defmulti</h3><p>宏 <code>defmulti</code> 和 <code>defmethod</code> 经常被用在一起来定义 multimethod. 宏 <code>defmulti</code> 的参数包括一个方法名以及一个dispatch函数，这个dispatch函数的返回值会被用来选择到底调用哪个重载的函数。宏 <code>defmethod</code> 的参数则包括方法名，dispatch的值， 参数列表以及方法体。一个特殊的dispatch值 <code>:default</code> 是用来表示默认情况的 — 即如果其它的dispatch值都不匹配的话，那么就调用这个方法。 <code>defmethod</code> 多定义的名字一样的方法，它们的参数个数必须一样。传给multimethod的参数会传给dipatch函数的。</p><p>下面是一个用multimethod来实现基于参数的类型来进行重载的例子：</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defmulti</span></span> what-am-i class) <span class="hljs-comment">; class is the dispatch function</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">defmethod</span></span> what-am-i Number [arg] (<span class="hljs-name">println</span> arg <span class="hljs-string">"is a Number"</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">defmethod</span></span> what-am-i String [arg] (<span class="hljs-name">println</span> arg <span class="hljs-string">"is a String"</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">defmethod</span></span> what-am-i <span class="hljs-symbol">:default</span> [arg] (<span class="hljs-name">println</span> arg <span class="hljs-string">"is something else"</span>))<br>(<span class="hljs-name">what-am-i</span> <span class="hljs-number">19</span>) <span class="hljs-comment">; -&gt; 19 is a Number</span><br>(<span class="hljs-name">what-am-i</span> <span class="hljs-string">"Hello"</span>) <span class="hljs-comment">; -&gt; Hello is a String</span><br>(<span class="hljs-name">what-am-i</span> <span class="hljs-literal">true</span>) <span class="hljs-comment">; -&gt; true is something else</span><br></code></pre></td></tr></table></figure><h3 id="6-Simple-Sample"><a href="#6-Simple-Sample" class="headerlink" title="6. Simple Sample"></a>6. Simple Sample</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><br><br></code></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;集合&quot;&gt;&lt;a href=&quot;#集合&quot; class=&quot;headerlink&quot; title=&quot;集合&quot;&gt;&lt;/a&gt;集合&lt;/h1&gt;&lt;h3 id=&quot;Collection&quot;&gt;&lt;a href=&quot;#Collection&quot; class=&quot;headerlink&quot; title=&quot;Colle
       
     
     </summary>
